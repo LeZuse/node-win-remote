@@ -1,0 +1,11 @@
+{
+  "name": "win-remote",
+  "version": "0.0.1",
+  "description": "Controlling Windows remotely from Mac using scripting",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tomas Ruzicka <tomasruzicka@abdoc.net> (https://github.com/lezuse)",
+  "license": "MIT"
+}
