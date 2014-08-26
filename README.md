@@ -6,8 +6,8 @@ Main script
 
 ## Windows SSH server
 - Download from http://www.freesshd.com/
-- Set up SSH service
-- Turn on password auth if needed
+- Install (do not use system service)
+- Configure SSH keys or turn on password auth (beware of admin rights)
 - Create users
 - Run with admin rights
 
