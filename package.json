@@ -3,6 +3,9 @@
   "version": "0.0.2",
   "description": "Controlling Windows remotely from Mac using scripting",
   "main": "main.js",
+  "bin": {
+    "run": "./bin/run.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -15,15 +15,13 @@ smb2Client = new SMB2
    username: config.smb.user
    password: config.smb.password
 
-#smb2Client.readdir(config.smb.user (err, files) ->
+#smb2Client.readdir config.smb.user (err, files) ->
 #      if err then  throw err;
 #      console.log(files);
-#);
 
-#smb2Client.readFile(config.smb.user + '\\install.log', {encoding: 'utf8'}, (err, data) ->
+#smb2Client.readFile config.smb.user + '\\install.log', {encoding: 'utf8'}, (err, data) ->
 #      if err then throw err;
 #      console.log(data);
-#);
 
 copy = (local, remote) ->
   console.log "Copying #{local} -> #{remote} ..."
@@ -40,4 +38,3 @@ smb2Client.exists config.smb.user + '\\.build', (err, exists) ->
         copy file, config.smb.user + '\\.build\\' + path.basename file
   else
     copy file, config.smb.user + '\\.build\\' + path.basename file
-  

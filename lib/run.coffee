@@ -1,5 +1,13 @@
+fs = require 'fs'
+path = require 'path'
 execSync = require 'exec-sync'
-config = require '../config'
+
+if fs.existsSync './config.coffee'
+  config = require './config.coffee'
+else if fs.existsSync path.join __dirname, '../config.coffee'
+  config = require path.join __dirname, '../config.coffee'
+else
+  throw new Error 'No config provided'
 
 # TODO: parse args
 console.log 'Args:', process.argv
@@ -13,7 +21,7 @@ else
 
 out = execSync cmd
 
-if out.indexOf('The system cannot find the path specified.') == 0 
+if out.indexOf('The system cannot find the path specified.') == 0
   console.log 'Please install first with `run install`'
 
 console.log out
