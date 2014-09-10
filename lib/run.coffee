@@ -14,12 +14,18 @@ console.log 'Args:', process.argv
 
 args = process.argv.splice(2)
 
-if args[0] is 'install'
-  cmd = 'ssh ' + config.ssh.host + ' "cmd /c cd %USERPROFILE% && npm install win-remote-base && echo OK || echo FAIL"'
-else
-  cmd = 'ssh ' + config.ssh.host + ' "cmd /c cd %USERPROFILE% && node_modules\\.bin\\base '+args.join(' ')+'"'
+switch args[0]
+  when 'install'
+    cmd = 'cd %USERPROFILE% && npm install win-remote-base && echo OK || echo FAIL'
+  when 'command'
+    throw new Error 'No command provided' unless args[1]
+    cmd = args[1]
+  else
+    cmd = 'cd %USERPROFILE% && node_modules\\.bin\\base ' + args.join(' ')
 
-out = execSync cmd
+exec = "ssh #{config.ssh.host} \"cmd /c #{cmd}\""
+
+out = execSync exec
 
 if out.indexOf('The system cannot find the path specified.') == 0
   console.log 'Please install first with `run install`'
