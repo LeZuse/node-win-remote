@@ -7,6 +7,7 @@ Controlling Windows
 
 ## TODO
 Main script
+Remote base autoupdating
 
 ## Windows SSH server
 - Download from http://www.freesshd.com/

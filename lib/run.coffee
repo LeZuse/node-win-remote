@@ -19,11 +19,11 @@ switch args[0]
     cmd = 'cd %USERPROFILE% && npm install win-remote-base && echo OK || echo FAIL'
   when 'command'
     throw new Error 'No command provided' unless args[1]
-    cmd = args[1]
+    exec = "ssh #{config.ssh.host} \"#{args.splice(1).join('" "')}\""
   else
     cmd = 'cd %USERPROFILE% && node_modules\\.bin\\base ' + args.join(' ')
 
-exec = "ssh #{config.ssh.host} \"cmd /c #{cmd}\""
+exec = "ssh #{config.ssh.host} \"cmd /c #{cmd}\"" unless exec
 
 out = execSync exec
 
