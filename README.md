@@ -1,6 +1,10 @@
 # Win Remote
 Controlling Windows
 
+## Prerequisites
+- NPM installed on remote machine: http://nodejs.org/download/
+- SSH server on remote machine, see below for instructions
+
 ## TODO
 Main script
 
