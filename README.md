@@ -16,3 +16,6 @@ Main script
 - Use standard `ssh` command
 - Optionally automate password entry: http://sourceforge.net/projects/sshpass/
   - `sshpass -p [yourpass] ssh [confighost]`
+
+## Other
+- Rsync for Win: http://www.rsync.net/resources/howto/windows_rsync.html
