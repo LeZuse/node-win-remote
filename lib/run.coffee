@@ -12,14 +12,14 @@ else
 # TODO: parse args
 console.log 'Args:', process.argv
 
-args = process.argv.splice(2)
+args = process.argv.slice(2)
 
 switch args[0]
   when 'install'
     cmd = 'cd %USERPROFILE% && npm install win-remote-base && echo OK || echo FAIL'
   when 'command'
     throw new Error 'No command provided' unless args[1]
-    exec = "ssh #{config.ssh.host} \"#{args.splice(1).join('" "')}\""
+    exec = "ssh #{config.ssh.host} \"#{args.slice(1).join('" "')}\""
   else
     cmd = 'cd %USERPROFILE% && node_modules\\.bin\\base ' + args.join(' ')
 
