@@ -10,7 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "coffee-script": "~1.7.1",
-    "exec-sync": "~0.1.6"
+    "exec-sync": "~0.1.6",
+    "smb2": "~0.2.4"
   },
   "publishConfig": {
     "registry": "http://registry.npmjs.org"
