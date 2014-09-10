@@ -1,6 +1,6 @@
 {
   "name": "win-remote",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Controlling Windows remotely from Mac using scripting",
   "main": "main.js",
   "bin": {
