@@ -2,8 +2,8 @@ fs = require 'fs'
 path = require 'path'
 execSync = require 'exec-sync'
 
-if fs.existsSync './config.coffee'
-  config = require './config.coffee'
+if fs.existsSync path.join process.cwd(), './config.coffee'
+  config = require path.join process.cwd(), './config.coffee'
 else if fs.existsSync path.join __dirname, '../config.coffee'
   config = require path.join __dirname, '../config.coffee'
 else

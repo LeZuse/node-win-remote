@@ -1,7 +1,13 @@
 fs = require 'fs'
 path = require 'path'
 SMB2 = require 'smb2'
-config = require './config'
+
+if fs.existsSync path.join process.cwd(), './config.coffee'
+  config = require path.join process.cwd(), './config.coffee'
+else if fs.existsSync path.join __dirname, '../config.coffee'
+  config = require path.join __dirname, '../config.coffee'
+else
+  throw new Error 'No config provided'
 
 if process.argv.length < 3
   console.log 'Usage: coffee smb.coffee filename-to-transfer'
