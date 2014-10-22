@@ -24,3 +24,4 @@ Remote base autoupdating
 
 ## Other
 - Rsync for Win: http://www.rsync.net/resources/howto/windows_rsync.html
+- http://www.aldeid.com/wiki/Multiple-ways-to-remotely-control-a-Windows-machine
