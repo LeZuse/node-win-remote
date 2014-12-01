@@ -25,7 +25,9 @@ smb.exists config.smb.user + '\\.build\\' + file, (err, exists) ->
   return console.error err if err
   if not exists
     console.log "Does not exist: #{file}"
+    smb.close()
   else
     smb.readFile config.smb.user + '\\.build\\' + file, (err, data) ->
       return console.error err if err
       fs.writeFileSync path.basename(file.replace '\\', '/'), data
+      smb.close()

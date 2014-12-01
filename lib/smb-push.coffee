@@ -29,10 +29,11 @@ smb2Client = new SMB2
 #      if err then throw err;
 #      console.log(data);
 
-copy = (local, remote) ->
+copy = (local, remote, cb) ->
   console.log "Copying #{local} -> #{remote} ..."
   smb2Client.writeFile remote, fs.readFileSync(local), {}, (err) ->
     console.log 'OK' unless err
+    cb?()
 
 smb2Client.exists config.smb.user + '\\.build', (err, exists) ->
   return console.error err if err
@@ -41,6 +42,8 @@ smb2Client.exists config.smb.user + '\\.build', (err, exists) ->
     smb2Client.mkdir config.smb.user + '\\.build', (err) ->
       if not err
         console.log 'OK'
-        copy file, config.smb.user + '\\.build\\' + path.basename file
+        copy file, config.smb.user + '\\.build\\' + path.basename file, () ->
+          smb2Client.close()
   else
-    copy file, config.smb.user + '\\.build\\' + path.basename file
+    copy file, config.smb.user + '\\.build\\' + path.basename file, () ->
+      smb2Client.close()
